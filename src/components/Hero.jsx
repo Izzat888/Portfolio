@@ -17,7 +17,7 @@ const Hero = ({ darkMode }) => {
         textPrimary: 'text-white',
         textSecondary: 'text-gray-300',
         buttonSecondary: 'text-white border-2 border-orange-500 hover:bg-orange-600',
-        decorativeCircle: 'bg-orange-500 opacity-10',
+        decorativeCircle: 'bg-orange-501 opacity-10',
     };
 
     const lightTheme = {
