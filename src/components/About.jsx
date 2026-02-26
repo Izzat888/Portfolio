@@ -94,7 +94,7 @@ const About = ({darkMode}) => {
                                       justify-center py-2 px-4 sm:px-6 
                                       hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]
                                       rounded-full text-base sm:text-lg font-semibold
-                                      transition-all duration-300 transform 
+                                      transition-all duration-300 transform mb-20
                                       ${darkMode ? 'text-white bg-orange-500/10' 
                                       : 'text-gray-800 bg-white/90'}`}
                                       data-aos='fade-up'
