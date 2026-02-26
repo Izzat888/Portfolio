@@ -4,13 +4,14 @@ import github from '../assets/github.png'
 import youtube from '../assets/youtube.png'
 import hero from "../assets/hero.png"
 import hi from "../assets/hi.png"
+import CV from "../assets/CV.pdf"
 import { DownloadIcon, Mail } from 'lucide-react';
 
 const Hero = ({ darkMode }) => {
     const socialIcons = [
-        { icon: instagram, alt: 'instagram' },
-        { icon: github, alt: 'github' },
-        { icon: youtube, alt: 'youtube' },
+        { icon: instagram, url: 'https://www.instagram.com/_izzat_888/' },
+        { icon: github, url: 'https://github.com/Izzat888' },
+        { icon: youtube, url: 'https://youtube.com/' },
     ];
 
     const darkTheme = {
@@ -32,30 +33,32 @@ const Hero = ({ darkMode }) => {
     return (
         <div className='relative overflow-hidden min-h-screen flex flex-col'>
             <section
-                   id='home'
-                   data-aos='fade-up'
-                   data-aos-delay='250'
-                   className='body-font z-10'>
+                id='home'
+                data-aos='fade-up'
+                data-aos-delay='250'
+                className='body-font z-10'>
                 <div className='container mx-auto flex px-4 sm:px-8 lg:px-14 py-12
-                        lg:py-14 flex-col lg:flex-row items-center justify-evenly
+                        lg:py-14 flex-col lg:flex-row items-center justify-around
                         lg:mt-14 mt-14'>
                     <div className='lg:w-1/2 w-full flex flex-col items-center
                        lg:items-start text-center lg:text-left mb-12 lg:mb-0'>
                         <div className='flex justify-center lg:justify-start
                         gap-4 sm:gap-6 mb-6 sm:mb-7 w-full'>
                             {socialIcons.map((social, index) => (
-                                <a key={index}
-                                    href='#'
-                                    target='_blank'
+                                <a
+                                    key={index}
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     data-aos-delay={`${400 + index * 100}`}
-                                    className='transform hover:scale-110 transition-transform 
-                            duration-300'>
-                                    <img src={social.icon}
-                                        alt={social.alt}
-                                        className={`w-8 h-8 sm:w-10 sm:h-10
-                                object-contain ${darkMode
-                                                ? ''
-                                                : 'filter brightness-75'}`} />
+                                    className="transform hover:scale-110 transition-transform duration-300"
+                                >
+                                    <img
+                                        src={social.icon}
+                                        alt="social"
+                                        className={`w-8 h-8 sm:w-10 sm:h-10 object-contain ${darkMode ? '' : 'filter brightness-75'
+                                            }`}
+                                    />
                                 </a>
                             ))}
                         </div>
@@ -83,7 +86,7 @@ const Hero = ({ darkMode }) => {
                             lg:justify-start gap-3 sm:gap-4'
                                 data-aos='fade-up'
                                 data-aos-delay='700'>
-                                <a href="#" download className='w-full sm:w-auto'>
+                                <a href={CV} download className='w-full sm:w-auto'>
                                     <button className='w-full sm:w-auto
                                     inline-flex items-center justify-center text-white
                                     bg-linear-to-r from-orange-500 to-amber-500 border-0
@@ -120,8 +123,8 @@ const Hero = ({ darkMode }) => {
                                 <img
                                     src={hero}
                                     alt="Hero Image"
-                                    className='w-full h-auto object-cover transform
-                            hover:scale-105 transition-transform duration-500'/>
+                                    className='w-150 h-150 object-cover transform
+                            hover:scale-105 transition-transform duration-500 rounded-full'/>
                             </div>
                             <img
                                 src={hi}

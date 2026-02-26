@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import About from './components/About'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
     }>
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
       <Hero darkMode={darkMode}/> 
+      <About darkMode={darkMode}/>
     </div>
   )
 }
