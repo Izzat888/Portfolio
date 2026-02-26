@@ -123,7 +123,7 @@ const Hero = ({ darkMode }) => {
                                 <img
                                     src={hero}
                                     alt="Hero Image"
-                                    className='w-150 h-150 object-cover transform
+                                    className='w-200 h-160 object-cover transform
                             hover:scale-105 transition-transform duration-500 rounded-full'/>
                             </div>
                             <img
