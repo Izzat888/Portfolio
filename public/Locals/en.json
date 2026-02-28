@@ -1,0 +1,50 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "hireMe": "Hire Me",
+    "hero": {
+    "title": "Hello. I’m Izzat.",
+    "text": "I am a Frontend Developer specializing in building modern and responsive web applications. I work with React, JavaScript, and Tailwind CSS, focusing on clean code, attractive design, and great user experience. My goal is to solve real-world problems through efficient and effective solutions.",
+    "cv": "Download CV",
+    "contact":"Contact Me"
+  },
+  "about":{
+    "title":"About Me",
+    "text":"I am a Frontend Developer focused on building modern and user-friendly web applications. I work with React, JavaScript, TypeScript, Node.js, and Tailwind CSS. I pay close attention to clean code, responsive design, and a great user experience.",
+    "static1":"Education",
+    "static2":"Year Experience",
+    "static3":"Projects Completed",
+    "btn":"Learn More"
+  },
+  "skills":{
+    "title1":"My",
+    "title":"Skills",
+    "text":"I build fast, scalable, and user-friendly interfaces using modern web technologies. I pay special attention to performance and usability in every project."
+  },
+  "project":{
+    "title1":"My",
+    "title2":"projects",
+    "text":"A showcase of my recent work",
+    "text1":"Luxury Line Perfumes is a harmony of elegance, quality, and perfection. Each fragrance is crafted from the finest ingredients to create a unique scent and leave a lasting impression. Luxury Line Perfumes is not just a fragrance — it is an expression of style and refined taste.",
+    "text2":"Zamon Business Tour is a modern travel platform designed to make business and leisure trips easier and more efficient. The website offers carefully selected destinations, transportation options, and seamless booking experiences, combining clean design with user-friendly functionality to ensure comfort and reliability for every journey.",
+    "text3":"AQVO is a food brand built on quality, honesty, and trust. Its products are made from high-quality ingredients, standing out for their natural taste and purity. AQVO represents a reliable choice for everyday nutrition.",
+    "btn1":"Code",
+    "btn2":"Demo"
+  },
+  "contact":{
+    "title1":"Get In",
+    "title2":"Touch",
+    "text":"Let's discuss your project",
+    "input1":"First Name",
+    "input2":"Last Name",
+    "input3":"Email Address",
+    "input4":"Phone Number",
+    "input5":"Your Message",
+    "btn":"Send Message"
+  }
+}

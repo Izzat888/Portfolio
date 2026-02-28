@@ -3,34 +3,36 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
 import project1 from '../assets/project1.png'
 import project2 from '../assets/project2.png'
 import project3 from '../assets/project3.png'
+import { useTranslation } from 'react-i18next'
 const Projects = ({ darkMode }) => {
+    const { t } = useTranslation();
     const projects = [
         {
             id: 1,
             title: 'Luxury Line',
-            desc: 'Luxury Line Perfumes is a harmony of elegance, quality, and perfection. Each fragrance is crafted from the finest ingredients to create a unique scent and leave a lasting impression. Luxury Line Perfumes is not just a fragrance — it is an expression of style and refined taste.',
+            descKey: 'project.text1',
             image: project1,
             tags: ['React', 'CSS', 'JavaScript', 'Responsive Web Design'],
             url: 'https://luxury-xi-blue.vercel.app/',
-            github:'https://github.com/Izzat888/Luxury'
+            github: 'https://github.com/Izzat888/Luxury'
         },
         {
             id: 2,
             title: 'Zamon Bussines Tour',
-            desc: 'Zamon Business Tour is a modern travel platform designed to make business and leisure trips easier and more efficient. The website offers carefully selected destinations, transportation options, and seamless booking experiences, combining clean design with user-friendly functionality to ensure comfort and reliability for every journey.',
+            descKey: 'project.text2',
             image: project2,
             tags: ['React', 'HTML', 'CSS', 'Responsive Web Design'],
-            url:'https://zamontour.uz/',
-            github:'https://github.com/Izzat888/Zamon-Business-Tour'
+            url: 'https://zamontour.uz/',
+            github: 'https://github.com/Izzat888/Zamon-Business-Tour'
         },
         {
             id: 3,
             title: 'AQVO',
-            desc: 'AQVO is a food brand built on quality, honesty, and trust. Its products are made from high-quality ingredients, standing out for their natural taste and purity. AQVO represents a reliable choice for everyday nutrition.',
+            descKey: 'project.text3',
             image: project3,
             tags: ['React', 'JavaScript', 'CSS', 'Responsive Web Design'],
-            url:'https://aqvo.uz/',
-            github:'https://github.com/Izzat888/Taqvo'
+            url: 'https://aqvo.uz/',
+            github: 'https://github.com/Izzat888/Taqvo'
         },
     ];
     const githubRepositories = 'https://github.com/Izzat888?tab=repositories';
@@ -47,7 +49,7 @@ const Projects = ({ darkMode }) => {
                         style={{
                             color: darkMode ? 'white' : '#1f2937'
                         }}>
-                        My <span
+                        {t("project.title1")} <span
                             style={{
                                 background: 'linear-gradient(to right, #f97316, #f59e0b)',
                                 WebkitBackgroundClip: 'text',
@@ -55,7 +57,7 @@ const Projects = ({ darkMode }) => {
                                 color: 'transparent'
                             }}
                         >
-                            projects
+                            {t("project.title2")}
                         </span>
                     </h2>
                     <p
@@ -63,7 +65,7 @@ const Projects = ({ darkMode }) => {
                         style={{
                             color: darkMode ? '#d1d5db' : '#6b7280'
                         }}>
-                        A showcase of my recent work
+                        {t("project.text")}
                     </p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2
@@ -98,11 +100,12 @@ const Projects = ({ darkMode }) => {
                                     {project.title}
                                 </h3>
                                 <p
-                                    className='text-sm mb-3'
+                                    className="text-sm mb-3"
                                     style={{
                                         color: darkMode ? '#d1d5db' : '#6b7280'
-                                    }}>
-                                    {project.desc}
+                                    }}
+                                >
+                                    {t(project.descKey)}
                                 </p>
                                 <div className='flex flex-wrap gap-1.5 mb-4'>
                                     {project.tags.map((tag, idx) => (
@@ -132,7 +135,7 @@ const Projects = ({ darkMode }) => {
                                         data-aos-delay='300'
                                     >
                                         <FaGithub className='text-sm' />
-                                        <span>Code</span>
+                                        <span>{t("project.btn1")}</span>
                                     </a>
 
                                     {/* Demo */}
@@ -150,7 +153,7 @@ const Projects = ({ darkMode }) => {
                                         data-aos-delay='300'
                                     >
                                         <FaExternalLinkAlt className='text-sm' />
-                                        <span>Demo</span>
+                                        <span>{t("project.btn2")}</span>
                                     </a>
                                 </div>
                             </div>

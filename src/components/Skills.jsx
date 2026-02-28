@@ -5,8 +5,10 @@ import react from '../assets/react.png'
 import tailwind from '../assets/tailwind.png'
 import typescript from '../assets/typescript.png'
 import node from '../assets/node.png'
+import { useTranslation } from 'react-i18next'
 
 const Skills = ({ darkMode }) => {
+    const { t } = useTranslation();
     const skills = [
         {
             name: 'HTML', icon: html, level: 100,
@@ -52,7 +54,7 @@ const Skills = ({ darkMode }) => {
                             style={{
                                 color: darkMode ? 'white' : '#1f2937'
                             }}>
-                            My <span
+                            {t("skills.title1")} <span
                                 style={{
                                     background: 'linear-gradient(to right, #f97316, #f59e0b)',
                                     WebkitBackgroundClip: 'text',
@@ -60,15 +62,13 @@ const Skills = ({ darkMode }) => {
                                     color: 'transparent'
                                 }}
                             >
-                                Skills
+                                {t("skills.title")}
                             </span></h1>
                         <p className='text-lg max-w-2xl mx-auto leading-relaxed'
                             style={{
                                 color: darkMode ? '#d1d5db' : '#4b5563'
                             }}>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Eaque ducimus vitae
-                            accusantium quod?
+                            {t("skills.text")}
                         </p>
                     </div>
                     <div className='flex flex-wrap -m-4'

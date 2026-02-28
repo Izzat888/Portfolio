@@ -1,8 +1,15 @@
 import { color, motion } from "framer-motion";
 import { useState } from "react";
 import { Sun, Moon, X, Menu } from "lucide-react";
-
+import { useTranslation } from "react-i18next";
+import logo from "../assets/logo.png"
 const Navbar = ({ darkMode, toggleDarkMode }) => {
+  const { t, i18n } = useTranslation()
+
+  const handleChange = (e) => {
+    i18n.changeLanguage(e.target.value)
+  }
+
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -51,7 +58,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         backdrop-blur-lg rounded-2xl px-4 lg:px-8 py-2 shadow-lg`}
       >
         <div className="flex items-center justify-between w-full space-x-6 lg:space-x-8">
-          
+
           {/* Logo */}
           <motion.a
             href="#home"
@@ -59,7 +66,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             className="flex items-center space-x-2"
           >
             <span className={`text-xl font-bold ${colors.textPrimary}`}>
-              Portfolio <span className="text-orange-500">.</span>
+              <img className="h-10 sm:h-12 lg:h-14 w-auto select-none inline" src={logo} alt="" /> <span className="text-orange-500">Portfolio</span>
             </span>
           </motion.a>
 
@@ -78,15 +85,11 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 >
                   <motion.span
                     className={`font-medium transition-colors duration-300
-                      ${
-                        isActive
-                          ? colors.textActive
-                          : `${colors.textSecondary} ${colors.textHover}`
-                      }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {item.name}
+                        ${isActive
+                        ? colors.textActive
+                        : `${colors.textSecondary} ${colors.textHover}`
+                      }`} >
+                    {t(`nav.${item.name.toLowerCase()}`)}
                   </motion.span>
 
                   {isActive && (
@@ -103,104 +106,122 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           <div className="flex items-center space-x-2">
             {/* Dark Mode Toggle  */}
             <motion.button
-            whileHover={{scale: 1.1}}
-            whileTap={{scale: 0.9}}
-            onClick={toggleDarkMode}
-            className={`p-2 rounded-full ${darkMode ? 'bg-gray-700'
-                :'bg-gray-200'
-            } transition-colors`}
-            aria-label={darkMode 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-full ${darkMode ? 'bg-gray-700'
+                : 'bg-gray-200'
+                } transition-colors`}
+              aria-label={darkMode
                 ? 'Switch to light mode'
                 : 'Switch to drak mode'
-            }>
-                {darkMode ? (
-                      <Sun className="w-5 h-5 text-yellow-300"/>
-                ) : (
-                    <Moon className="w-5 h-5 text-gray-700" />
-                )}
+              }>
+              {darkMode ? (
+                <Sun className="w-5 h-5 text-yellow-300" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-700" />
+              )}
             </motion.button>
             {/* Button */}
             <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05}}
-            whileTap={{scale: 0.95}}
-            className={`hidden lg:block px-6 py-2 font-semibold
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`hidden lg:block px-6 py-2 font-semibold
             rounded-full bg-linear-to-r ${colors.button}
             text-white shadow-md hover:shadow-lg transition-shadow`}>
-                Hire Me
+              {t("hireMe")}
             </motion.a>
           </div>
+          <select
+            value={i18n.language}
+            onChange={handleChange}
+            className={`
+                 appearance-none cursor-pointer
+                 px-4 py-2 pr-9
+                 rounded-xl text-sm font-medium
+                 outline-none transition-all
+                 shadow-md
+                 ${darkMode
+                             ? "bg-gray-800 text-white border border-gray-700 hover:border-orange-500"
+                             : "bg-white text-gray-800 border border-gray-300 hover:border-orange-500"
+                           }
+                 focus:ring-2 focus:ring-orange-500/40
+            `}
+          >
+            <option value="en"> English</option>
+            <option value="ru"> Русский</option>
+            <option value="uz"> O‘zbek</option>
+          </select>
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center space-x-4 px-2">
             <motion.button
-            whileTap={{scale: 0.9}}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`p-2 rounded-lg ${darkMode 
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`p-2 rounded-lg ${darkMode
                 ? 'bg-gray-700'
                 : 'bg-gray-200'
-            }`}>
-                {isMenuOpen ? (
-                    <X className={`w-5 h-5 ${darkMode 
-                        ? 'text-white'
-                        : 'text-gray-700'
-                    }`}/>
-                ) : (
-                    <Menu className={`w-5 h-5 ${darkMode 
-                        ? 'text-white'
-                        : 'text-gray-700'
-                    }`}/>
-                )}
+                }`}>
+              {isMenuOpen ? (
+                <X className={`w-5 h-5 ${darkMode
+                  ? 'text-white'
+                  : 'text-gray-700'
+                  }`} />
+              ) : (
+                <Menu className={`w-5 h-5 ${darkMode
+                  ? 'text-white'
+                  : 'text-gray-700'
+                  }`} />
+              )}
             </motion.button>
           </div>
         </div>
         {isMenuOpen && (
-            <motion.div
-            initial={{ opacity: 0, height: 0}}
-            animate={{opacity: 1, height: 'auto'}}
-            exit={{ opacity: 0, height: 0}}
-            transition={{duration: 0.3}}
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
             className={`absolute top-full left-0 right-0 mt-2 lg:hidden
-            ${darkMode 
+            ${darkMode
                 ? 'bg-gray-900/95'
                 : 'bg-white/95'
-            } backdrop-blur-lg rounded-xl shadow-lg border ${
-                darkMode ? 'border-gray-700' : 'border-gray-200'
-            }`}>
-                <div className="px-4 py-3 space-y-2">
-                    {navItems.map((item) => (
-                        <a key={item.name}
-                         href={item.link}
-                         onClick={() => handleNavClick(item.name)}
-                         className="block">
-                            <motion.div
-                            whileHover={{x: 5}}
-                            className={`py-3 px-4 rounded-lg text-center
-                            ${
-                            activeSection === item.name.toLocaleLowerCase()
-                            ? darkMode ? 'bg-gray-800' : 'bg-orange-50'
-                            : ''
-                            }`}>
-                                <span
-                                className={`font-medium ${
-                                    activeSection === item.name.toLocaleLowerCase()
-                                    ? colors.textActive
-                                    : colors.textSecondary
-                                }`}>
-                                    {item.name}
-                                </span>
-                            </motion.div>
-                         </a>
-                    ))}
-                    <motion.a
-                    href="#contact"
-                    onClick={() => setIsMenuOpen(false)}
-                    whileTap={{scale: 0.95}}
-                    className={`block py-3 px-4 text-center font-semibold rounded-lg bg-linear-to-r ${colors.button}
+              } backdrop-blur-lg rounded-xl shadow-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'
+              }`}>
+            <div className="px-4 py-3 space-y-2">
+              {navItems.map((item) => (
+                <a key={item.name}
+                  href={item.link}
+                  onClick={() => handleNavClick(item.name)}
+                  className="block">
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className={`py-3 px-4 rounded-lg text-center
+                            ${activeSection === item.name.toLocaleLowerCase()
+                        ? darkMode ? 'bg-gray-800' : 'bg-orange-50'
+                        : ''
+                      }`}>
+                    <span
+                      className={`font-medium ${activeSection === item.name.toLowerCase()
+                        ? colors.textActive
+                        : colors.textSecondary
+                        }`}
+                    >
+                      {t(`nav.${item.name.toLowerCase()}`)}
+                    </span>
+                  </motion.div>
+                </a>
+              ))}
+              <motion.a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                whileTap={{ scale: 0.95 }}
+                className={`block py-3 px-4 text-center font-semibold rounded-lg bg-linear-to-r ${colors.button}
                     text-white shadow-md`}>
-                        Hire Me
-                    </motion.a>
-                </div>
-            </motion.div>
+                {t("hireMe")}
+              </motion.a>
+            </div>
+          </motion.div>
         )}
       </motion.nav>
     </div>

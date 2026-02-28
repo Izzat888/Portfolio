@@ -1,0 +1,50 @@
+{
+    "nav": {
+        "home": "Bosh sahifa",
+        "about": "Men haqimda",
+        "skills": "Ko‘nikmalar",
+        "projects": "Loyihalar",
+        "contact": "Aloqa"
+    },
+    "hireMe": "Bog‘lanish",
+    "hero": {
+        "text": "Men Frontend Developer sifatida zamonaviy va responsiv veb-ilovalar yaratishga ixtisoslashganman. React, JavaScript va Tailwind CSS bilan ishlayman. Toza kod, chiroyli dizayn va foydalanuvchi tajribasiga alohida e’tibor beraman. Maqsadim — real muammolarni samarali yechimlar orqali hal qilish.",
+        "title": "Salom. Men Izzat.",
+        "cv": "CV yuklab olish",
+        "contact": "Bog‘lanish"
+    },
+    "about": {
+        "title": "Men haqimda",
+        "text": "Men Frontend Developer sifatida zamonaviy va foydalanuvchi uchun qulay veb-ilovalar yarataman. React, JavaScript, TypeScript, Node.js va Tailwind CSS bilan ishlayman. Toza kod, responsiv dizayn va yaxshi foydalanuvchi tajribasiga alohida e’tibor beraman.",
+        "static1": "Ta’lim",
+        "static2": "Yillik tajriba",
+        "static3": "Bajarilgan loyihalar",
+        "btn": "Batafsil"
+    },
+    "skills": {
+        "title1": "Mening",
+        "title": "Ko‘nikmalarim",
+        "text": "Men zamonaviy web texnologiyalar yordamida tezkor, kengaytiriladigan va foydalanuvchi uchun qulay interfeyslar yarataman. Har bir loyihada unumdorlik va qulaylikka alohida e’tibor beraman."
+    },
+    "project": {
+        "title1": "Mening",
+        "title2": "loyihalarim",
+        "text": "So‘nggi bajargan ishlarim namoyishi",
+        "text1": "Luxury Line Perfumes — bu nafislik, sifat va mukammallik uyg‘unligidir. Har bir atir eng sifatli ingredientlardan tayyorlanib, o‘ziga xos hid va unutilmas taassurot qoldirish uchun yaratilgan. Luxury Line Perfumes — bu shunchaki hid emas, bu uslub va did ifodasi.",
+        "text2": "Zamon Business Tour — bu biznes va dam olish sayohatlarini yanada qulay va samarali qilish uchun yaratilgan zamonaviy sayohat platformasi. Sayt puxta tanlangan yo‘nalishlar, transport xizmatlari va qulay bron qilish imkoniyatlarini taklif etib, foydalanuvchilar uchun ishonch va qulaylikni ta’minlaydi.",
+        "text3": "AQVO — sifat, halollik va ishonchga asoslangan oziq-ovqat brendi. Mahsulotlar yuqori sifatli ingredientlardan tayyorlanib, tabiiy ta’mi va sof tarkibi bilan ajralib turadi. AQVO kundalik ovqatlanish uchun ishonchli tanlovdir.",
+        "btn1": "Kod",
+        "btn2": "Demo"
+    },
+    "contact": {
+        "title1": "Bog‘lanish",
+        "title2": "",
+        "text": "Loyihangizni muhokama qilaylik",
+        "input1": "Ismingiz",
+        "input2": "Familiyangiz",
+        "input3": "Email manzilingiz",
+        "input4": "Telefon raqamingiz",
+        "input5": "Xabaringiz",
+        "btn": "Xabar yuborish"
+    }
+}

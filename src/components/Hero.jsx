@@ -6,8 +6,11 @@ import hero from "../assets/hero.png"
 import hi from "../assets/hi.png"
 import CV from "../assets/CV.pdf"
 import { DownloadIcon, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next'
 
 const Hero = ({ darkMode }) => {
+    const { t } = useTranslation();
+
     const socialIcons = [
         { icon: instagram, url: 'https://www.instagram.com/_izzat_888/' },
         { icon: github, url: 'https://github.com/Izzat888' },
@@ -66,19 +69,13 @@ const Hero = ({ darkMode }) => {
                             lg:text-5xl mb-4 font-bold ${theme.textPrimary}`}
                             data-aos='fade-up'
                             data-aos-delay='500'>
-                            Hi, I'm OualiCode
+                            {t("hero.title")}
                         </h1>
                         <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md
                             sm:max-w-lg ${theme.textSecondary}`}
                             data-aos='fade-up'
                             data-aos-delay='600'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Ab pariatur tempora doloribus corporis nulla eius quas
-                            consectetur? Impedit ut nulla aliquam consectetur qui,
-                            \dolorem repudiandae laborum non eum fuga blanditiis
-                            laboriosam id repellat inventore excepturi voluptatum
-                            assumenda illo, quam quis. Corporis voluptatum nisi ex
-                            amet soluta doloribus, mollitia dicta ad?
+                            {t("hero.text")}
                         </p>
                         {/* Buttons */}
                         <div className='w-full pt-4 sm:pt-6'>
@@ -94,7 +91,7 @@ const Hero = ({ darkMode }) => {
                                     rounded-full text-base sm:text-lg font-semibold transition-all
                                     duration-300 transform'>
                                         <DownloadIcon className='w-4 h-4 sm:w-5 mr-2' />
-                                        Download CV
+                                        {t("hero.cv")}
                                     </button>
                                 </a>
                                 <a href="#contact" className='w-full sm:w-auto'>
@@ -105,7 +102,7 @@ const Hero = ({ darkMode }) => {
                                     rounded-full text-base sm:text-lg font-semibold transition-all
                                     duration-300 transform`}>
                                         <Mail className='w-4 h-4 sm:w-5 sm:h-5 mr-2' />
-                                        Contact Me
+                                        {t("hero.contact")}
                                     </button>
                                 </a>
                             </div>

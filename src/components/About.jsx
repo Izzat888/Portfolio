@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next"
 import about from "../assets/about.png"
 
 const About = ({darkMode}) => {
+    const { t } = useTranslation();
     return (
         <section id="about" className={`min-h-screen overflow-hidden flex items-center
     justify-center px-4 sm:px-6`}>
@@ -38,7 +40,7 @@ const About = ({darkMode}) => {
                     from-orange-400 to-orange-600 bg-clip-text"
                             data-aos='fade-up'
                             data-aos-delay='400'>
-                            About Me
+                            {t("about.title")}
                         </h1>
                     </header>
                     <p className={`text-sm sm:text-base lg:text-lg xl:text-xl mb-6 sm:mb-8 leading-relaxed bg-linear-to-r
@@ -46,10 +48,7 @@ const About = ({darkMode}) => {
                     backdrop-blur-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
                         data-aos='fade-up'
                         data-aos-delay='500'>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Tenetur excepturi culpa, provident ipsa voluptatibus dolore illum
-                        nulla architecto natus perferendis id nihil explicabo laudantium,
-                        necessitatibus ratione possimus odit perspiciatis enim.
+                        {t("about.text")}
                     </p>
                     <div
                         className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8
@@ -63,7 +62,7 @@ const About = ({darkMode}) => {
                         font-bold text-orange-400">5+</div>
                             <div className={`text-xs sm:text-sm lg:text-base
                         ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
-                            >Education</div>
+                            >{t("about.static1")}</div>
                         </div>
                         {/* Year Experience */}
                         <div
@@ -71,10 +70,10 @@ const About = ({darkMode}) => {
                             data-aos='zoom-in'
                             data-aos-delay='650'>
                             <div className="text-2xl sm:text-3xl lg:text-4xl
-                        font-bold text-orange-400">10+</div>
+                        font-bold text-orange-400">2+</div>
                             <div className={`text-xs sm:text-sm lg:text-base
                         ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
-                            >Year Experience</div>
+                            >{t("about.static2")}</div>
                         </div>
                         {/* Projects Completed */}
                         <div
@@ -82,10 +81,10 @@ const About = ({darkMode}) => {
                             data-aos='zoom-in'
                             data-aos-delay='700'>
                             <div className="text-2xl sm:text-3xl lg:text-4xl
-                        font-bold text-orange-400">100+</div>
+                        font-bold text-orange-400">10+</div>
                             <div className={`text-xs sm:text-sm lg:text-base
                         ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
-                            >Projects Completed
+                            >{t("about.static3")}
                             </div>
                         </div>
                     </div>
@@ -99,7 +98,7 @@ const About = ({darkMode}) => {
                                       : 'text-gray-800 bg-white/90'}`}
                                       data-aos='fade-up'
                                       data-aos-delay='800'>
-                        Learn More
+                        {t("about.btn")}
                     </button>
                 </article>
             </div>

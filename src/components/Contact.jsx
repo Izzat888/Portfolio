@@ -1,6 +1,39 @@
-
+import axios from 'axios';
 import contactImg from '../assets/contact.png'
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 const Contact = ({ darkMode }) => {
+    const { t } = useTranslation();
+    const [fname, setFname] = useState("");
+    const [lname, setLname] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("")
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+
+        const token = '8378204671:AAFO4y7xohQA5TfKGgb2iu0EanLJU-Of57k'
+        const chat_id = 1319144600
+
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+        const text = `First Name: ${fname}\n Last Name: ${lname}\n Email: ${email}\n Phone: ${phone}\n Message: ${message}\n`
+
+        axios.post(url, {
+            chat_id: chat_id,
+            text: text
+        }).then(() => {
+            alert("Application sent successfully ✅")
+            setFname("")
+            setLname("")
+            setEmail("")
+            setPhone("")
+            setMessage("")
+        }).catch(() => {
+            console.log("Invalid information provided ❌");
+            
+        })
+    } 
     return (
         <section
         id="contact"
@@ -17,14 +50,14 @@ const Contact = ({ darkMode }) => {
                     style={{
                         color: darkMode ? 'white' : '#1f2937'
                     }}>
-                        Get In <span
+                       {t("contact.title1")} <span
                         style={{
                             background: 'linear-gradient(to right, #f97316, #f59e0b)',
                             WebkitBackgroundClip: 'text',
                             backgroundClip: 'text',
                             color: 'transparent'
                         }}>
-                            Touch
+                            {t("contact.title2")}
                         </span>
                     </h2>
                     <p
@@ -32,7 +65,7 @@ const Contact = ({ darkMode }) => {
                     style={{
                         color: darkMode ? '#d1d5db' : '#6b7280'
                     }}>
-                        Let's discuss your project
+                        {t("contact.text")}
                     </p>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6
@@ -52,18 +85,20 @@ const Contact = ({ darkMode }) => {
                     }}
                     className='rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 border
                     shadow-lg order-1 lg:order-2'
-                    data-aos='fade-left'>
+                    data-aos='fade-left'
+                    onSubmit={sendMessage}>
                         <div className='grid grid-cols-1 sm:grid-cols-2 gap-3
                         sm:gap-4 mb-3 sm:mb-4'>
                             {/* First Name */}
                             <input
                              type="text" 
-                             placeholder='First Name'
+                             placeholder={t("contact.input1")}
                              style={{
                                 backgroundColor: darkMode ? '#374151' : '#faede3',
                                 borderColor: darkMode ? '#4b5563' : '#d1d5db',
                                 color: darkMode ? 'white' : '#1f2937'
                              }}
+                             onChange={(e) => setFname(e.target.value)} value={fname}
                              className='w-full px-3 sm:px-4 py-2 sm:py-3
                              rounded-lg text-sm sm:text-base
                              focus:border-orange-500 focus:ring-2
@@ -72,12 +107,13 @@ const Contact = ({ darkMode }) => {
                              {/* Last Name */}
                              <input
                              type="text" 
-                             placeholder='Last Name'
+                             placeholder={t("contact.input2")}
                              style={{
                                 backgroundColor: darkMode ? '#374151' : '#faede3',
                                 borderColor: darkMode ? '#4b5563' : '#d1d5db',
                                 color: darkMode ? 'white' : '#1f2937'
                              }}
+                             onChange={(e) => setLname(e.target.value)} value={lname}
                              className='w-full px-3 sm:px-4 py-2 sm:py-3
                              rounded-lg text-sm sm:text-base
                              focus:border-orange-500 focus:ring-2
@@ -87,12 +123,13 @@ const Contact = ({ darkMode }) => {
                         {/* Email Address */}
                         <input
                              type="email" 
-                             placeholder='Email Address'
+                             placeholder={t("contact.input3")}
                              style={{
                                 backgroundColor: darkMode ? '#374151' : '#faede3',
                                 borderColor: darkMode ? '#4b5563' : '#d1d5db',
                                 color: darkMode ? 'white' : '#1f2937'
                              }}
+                             onChange={(e) => setEmail(e.target.value)} value={email}
                              className='w-full px-3 sm:px-4 py-2 sm:py-3
                              rounded-lg text-sm sm:text-base
                              focus:border-orange-500 focus:ring-2
@@ -102,12 +139,13 @@ const Contact = ({ darkMode }) => {
                              {/* Phone Number */}
                              <input
                              type="tel" 
-                             placeholder='Phone Number'
+                             placeholder={t("contact.input4")}
                              style={{
                                 backgroundColor: darkMode ? '#374151' : '#faede3',
                                 borderColor: darkMode ? '#4b5563' : '#d1d5db',
                                 color: darkMode ? 'white' : '#1f2937'
                              }}
+                             onChange={(e) => setPhone(e.target.value)} value={phone}
                              className='w-full px-3 sm:px-4 py-2 sm:py-3
                              rounded-lg text-sm sm:text-base
                              focus:border-orange-500 focus:ring-2
@@ -117,18 +155,20 @@ const Contact = ({ darkMode }) => {
                              {/* Messege */}
                              <textarea
                              rows='4'
-                             placeholder='Your Message'
+                             placeholder={t("contact.input5")}
                              style={{
                                 backgroundColor: darkMode ? '#374151' : '#faede3',
                                 borderColor: darkMode ? '#4b5563' : '#d1d5db',
                                 color: darkMode ? 'white' : '#1f2937'
                              }}
+                             onChange={(e) => setMessage(e.target.value)} value={message}
                              className='w-full px-3 sm:px-4 py-2 sm:py-3
                              rounded-lg text-sm sm:text-base
                              focus:border-orange-500 focus:ring-2
                              focus:ring-orange-500/20 transition-all
                              mb-4 sm:mb-6 resize-none'
                              required/>
+                             {/* button */}
                              <button
                              type='submit'
                              style={{
@@ -137,7 +177,7 @@ const Contact = ({ darkMode }) => {
                              className='w-full py-2 sm:py-3 text-white font-semibold
                              rounded-lg text-sm sm:text-base hover:shadow-lg
                              hover:shadow-orange-500/25 hover:scale-[1.02] transition-all'>
-                                Send Message
+                                {t("contact.btn")}
                              </button>
                     </form>
                 </div>
